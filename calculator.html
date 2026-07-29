@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Monthly Calculator | Auto Insider PH</title>
+
+    <meta name="description"
+        content="Helping Filipinos make smarter car-buying decisions. Toyota Silang | Buying Guides | Calculators | Vehicle Releases | Automotive Consultant">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- ===================== -->
+    <!-- Background Effects -->
+    <!-- ===================== -->
+
+    <div class="bg-gradient"></div>
+
+    <div class="blur blur1"></div>
+    <div class="blur blur2"></div>
+
+    <!-- ===================== -->
+    <!-- Navigation -->
+    <!-- ===================== -->
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            <span class="logo-red">AUTO</span>
+
+            <span class="logo-white">INSIDER PH</span>
+
+        </div>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="#home">Home</a></li>
+
+                <li><a href="#tools">Tools</a></li>
+
+                <li><a href="#releases">News &amp; Guides</a></li>
+
+                <li><a href="#about">About</a></li>
+
+                <li><a href="#testimonials">Testimonials</a></li>
+
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+
+        </nav>
+
+        <div class="nav-buttons">
+
+            <a href="https://www.facebook.com/vince.toyotasilang/" class="btn-outline">
+
+                Facebook
+
+            </a>
+
+            <a href="https://www.facebook.com/vince.toyotasilang/" class="btn-primary">
+
+                Message Me
+
+            </a>
+
+        </div>
+
+       <div class="menu-btn" id="menuBtn">
+
+        <i class="fa-solid fa-bars"></i>
+
+        </div>
+
+    </header>
+
+    <!-- =====================
+     MOBILE MENU
+===================== -->
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <a href="#home">Home</a>
+
+        <a href="#tools">Tools</a>
+
+        <a href="#releases">News &amp; Guides</a>
+
+        <a href="#about">About</a>
+
+        <a href="#testimonials">Testimonials</a>
+
+        <a href="#contact">Contact</a>
+
+    </div>
+
+    <!-- ===================== -->
+    <!-- HERO -->
+    <!-- ===================== -->
+
+    <section class="calculator-hero" id="calculator">
+
+    <div class="calculator-container">
+
+        <h1>Monthly Payment Calculator</h1>
+
+        <p>
+            Estimate your monthly payment using Toyota Financial Services (TFS)
+            rates. Select your preferred Toyota model and financing option to
+            receive an instant estimate.
+        </p>
+
+    </div>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- CALCULATOR CARD -->
+    <!-- ===================== -->
+
+    <section class="calculator-section">
+
+    <div class="calculator-card">
+
+        <div class="form-group">
+
+            <label>Vehicle</label>
+
+            <select id="vehicle">
+                <option>Select Vehicle</option>
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Variant</label>
+
+            <select id="variant">
+                <option>Select Variant</option>
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Vehicle Price</label>
+
+            <input
+                type="text"
+                id="price"
+                readonly
+                placeholder="₱0"
+            >
+
+        </div>
+
+        <div class="form-group">
+
+        <label>Down Payment Option</label>
+
+        <select id="downpayment">
+
+        <option value="">Select Down Payment</option>
+
+        <option value="15">15%</option>
+        <option value="20">20%</option>
+        <option value="30">30%</option>
+        <option value="40">40%</option>
+        <option value="50">50%</option>
+
+     </select>
+
+    </div>
+
+    <div class="form-group">
+
+    <label>Promo Down Payment</label>
+
+    <input
+        type="text"
+        id="promoDP"
+        readonly
+        placeholder="₱0"
+    >
+
+    </div>
+
+        <div class="form-group">
+
+            <label>Loan Term</label>
+
+            <select id="term">
+
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+                <option value="48">48 Months</option>
+                <option selected value="60">60 Months</option>
+                <option value="72">72 Months</option>
+
+            </select>
+
+        </div>
+
+        <button class="calculate-btn" id="calculateBtn">
+
+        <i class="fa-solid fa-calculator"></i>
+
+        Calculate Monthly Payment
+
+        </button>
+
+    </div>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- RESULT CARD -->
+    <!-- ===================== -->
+
+    <section class="results-section">
+
+    <div class="results-card">
+
+        <h2>Estimated Monthly Payment</h2>
+
+        <div class="result-row">
+            <span>Vehicle Price</span>
+            <strong id="resultPrice">₱0</strong>
+        </div>
+
+        <div class="result-row">
+        <span>Promo Down Payment</span>
+        <strong id="resultDP">₱0</strong>
+        </div>
+
+        <div class="result-row">
+            <span>Loan Amount</span>
+            <strong id="resultLoan">₱0</strong>
+        </div>
+
+        <div class="result-row total">
+
+            <span>Estimated Monthly</span>
+
+            <div class="monthly-result">
+            <strong id="resultMonthly">
+                 ₱0
+            </strong>
+            <span id="resultTerm">
+                Based on a 60-month term
+            </span>
+            </div>
+
+        </div>
+
+    </div>
+
+    </section>
+
+    <p class="quotation-note">
+        <strong>Disclaimer:</strong> No Price Protection. Prices are subject to change without prior notice.
+    </p>
+
+    <!-- ===================== -->
+    <!-- CALL TO ACTION -->
+    <!-- ===================== -->
+
+    <section class="next-step">
+
+    <h2>Looks good?</h2>
+
+    <p>
+        Let's take the next step.
+    </p>
+
+    <div class="next-buttons">
+
+    <a href="#" id="quotationBtn" class="primary-btn">
+
+    <i class="fa-solid fa-file-lines"></i>
+
+    Request Official Quotation
+
+    </a>
+
+    <a href="#" class="secondary-btn">
+
+    <i class="fa-solid fa-car-side"></i>
+
+    Book a Test Drive
+
+    </a>
+
+    <a href="https://www.facebook.com/vince.toyotasilang/" class="secondary-btn">
+
+    <i class="fa-brands fa-facebook-messenger"></i>
+
+    Talk to Vince
+
+    </a>
+
+    </div>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- STATS -->
+    <!-- ===================== -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+
+            <h2>100%</h2>
+
+            <p>Customer Focused</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2>Honest</h2>
+
+            <p>Recommendations</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2>Free</h2>
+
+            <p>Buying Consultation</p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2>24/7</h2>
+
+            <p>Messenger Support</p>
+
+        </div>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- WHY CHOOSE ME -->
+    <!-- ===================== -->
+
+    <section class="section" id="about">
+
+        <div class="section-title">
+
+            <span>WHY WORK WITH ME</span>
+
+            <h2>
+
+                Buying a Car Shouldn't Feel Complicated
+
+            </h2>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-scale-balanced"></i>
+
+                <h3>Honest Advice</h3>
+
+                <p>
+
+                    Helping you choose the right vehicle—not simply the most expensive one.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-coins"></i>
+
+                <h3>Financing Guidance</h3>
+
+                <p>
+
+                    Understand your options before signing any paperwork.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-car-side"></i>
+
+                <h3>Vehicle Matching</h3>
+
+                <p>
+
+                    Based on your lifestyle, budget, and daily driving needs.
+
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-headset"></i>
+
+                <h3>After Sales Support</h3>
+
+                <p>
+
+                    I'm here even after you receive your vehicle.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- FEATURED VEHICLES -->
+    <!-- ===================== -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <span>FEATURED VEHICLES</span>
+
+            <h2>
+
+                Popular Toyota Models
+
+            </h2>
+
+        </div>
+
+        <div class="vehicle-grid">
+
+            <div class="vehicle-card">
+
+                <img src="images/CorollaCross_FrontWide.webp">
+
+                <h3>Corolla Cross Hybrid</h3>
+
+                <p>
+
+                    Efficient. Smart. Family Friendly.
+
+                </p>
+
+            </div>
+
+            <div class="vehicle-card">
+
+                <img src="images/Fortuner_FrontWide.webp">
+
+                <h3>Fortuner</h3>
+
+                <p>
+
+                    Premium SUV Built For Adventure.
+
+                </p>
+
+            </div>
+
+            <div class="vehicle-card">
+
+                <img src="images/Hilux_FrontWide.webp">
+
+                <h3>Hilux</h3>
+
+                <p>
+
+                    Tough. Reliable. Built To Last.
+
+                </p>
+
+            </div>
+
+            <div class="vehicle-card">
+
+                <img src="images/Zenix_FrontWide.webp">
+
+                <h3>Innova Zenix</h3>
+
+                <p>
+
+                    Comfort Meets Hybrid Efficiency.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- TOOLS -->
+    <!-- ===================== -->
+
+    <section class="section" id="tools">
+
+        <div class="section-title">
+
+            <span>FREE TOOLS</span>
+
+            <h2>
+
+                Car Buying Calculators
+
+            </h2>
+
+        </div>
+
+        <div class="tool-grid">
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-calculator"></i>
+
+                <h3>Monthly Payment Calculator</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <h3>Affordability Calculator</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-gas-pump"></i>
+
+                <h3>Fuel Savings Calculator</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <h3>Ownership Cost Calculator</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+
+                <h3>Trade-In Estimator</h3>
+
+            </div>
+
+            <div class="tool-card">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <h3>Insurance Estimator</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- LATEST RELEASES -->
+    <!-- ===================== -->
+
+    <section class="section" id="releases">
+
+        <div class="section-title">
+
+            <span>LATEST RELEASES</span>
+
+            <h2>
+
+                News & Buying Guides
+
+            </h2>
+
+        </div>
+
+        <div class="release-grid">
+
+            <article class="release-card">
+
+                <img src="images/article1.jpg">
+
+                <div>
+
+                    <span>Buying Guide</span>
+
+                    <h3>
+
+                        Best Toyota For First-Time Buyers
+
+                    </h3>
+
+                </div>
+
+            </article>
+
+            <article class="release-card">
+
+                <img src="images/article2.jpg">
+
+                <div>
+
+                    <span>Ownership</span>
+
+                    <h3>
+
+                        Hidden Costs Of Owning A Vehicle
+
+                    </h3>
+
+                </div>
+
+            </article>
+
+            <article class="release-card">
+
+                <img src="images/article3.jpg">
+
+                <div>
+
+                    <span>Tips</span>
+
+                    <h3>
+
+                        Financing Mistakes You Should Avoid
+
+                    </h3>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- TESTIMONIAL -->
+    <!-- ===================== -->
+
+    <section class="section" id="testimonials">
+
+        <div class="section-title">
+
+            <span>TESTIMONIALS</span>
+
+            <h2>
+
+                Trusted By Clients
+
+            </h2>
+
+        </div>
+
+        <div class="testimonial">
+
+            <p>
+
+                Testimonials will appear here once customers are added.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- CTA -->
+    <!-- ===================== -->
+
+    <section class="cta">
+
+        <h2>
+
+            Ready To Find Your Next Toyota?
+
+        </h2>
+
+        <p>
+
+            Whether you're buying your first vehicle, upgrading,
+            or simply comparing options, I'd be happy to help.
+
+        </p>
+
+        <a href="https://www.facebook.com/vince.toyotasilang/" class="btn-primary">
+
+            Message Me
+
+        </a>
+
+    </section>
+
+    <!-- ===================== -->
+    <!-- CONTACT -->
+    <!-- ===================== -->
+
+    <footer id="contact">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>AUTO INSIDER PH</h3>
+
+                <p>
+
+                    Helping Filipinos make smarter car-buying decisions.
+
+                </p>
+
+            </div>
+
+            <div>
+
+                <h4>Navigation</h4>
+
+                <a href="#">Home</a>
+                <a href="#">Tools</a>
+                <a href="#">Releases</a>
+                <a href="#">About</a>
+
+            </div>
+
+            <div>
+
+                <h4>Contact</h4>
+
+                <a href="https://www.facebook.com/vince.toyotasilang/">Facebook</a>
+                <a href="https://www.facebook.com/vince.toyotasilang/">Messenger</a>
+                <a href="#">WhatsApp</a>
+                <a href="mailto:gatdulajanvincent@gmail.com?subject=Toyota Inquiry">Email</a>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+
+            © Auto Insider PH
+            Designed & Developed by Vince Gatdula.
+
+        </div>
+
+    </footer>
+
+    <!-- ===================== -->
+    <!-- Scripts -->
+    <!-- ===================== -->
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="script.js"></script>
+
+    <select id="vehicle"></select>
+
+    <script src="js/calculator.js"></script>
+
+</body>
+
+</html>

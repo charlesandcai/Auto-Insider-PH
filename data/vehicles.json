@@ -1,0 +1,38 @@
+[
+    {
+    "model": "Toyota Vios",
+    "variant": "1.3 XLE CVT",
+    "srp": 908000,
+
+    "promoDP":{
+
+        "15":5000,
+        "20":54000,
+        "30":154000,
+        "40":415600,
+        "50":519500
+
+    }
+
+    },
+    {
+        "model": "Toyota Vios",
+        "variant": "1.5 G CVT",
+        "srp": 1250000
+    },
+    {
+        "model": "Toyota Yaris Cross",
+        "variant": "1.5 V CVT",
+        "srp": 1602000
+    },
+    {
+        "model": "Toyota Corolla Cross",
+        "variant": "HEV G",
+        "srp": 1700000
+    },
+    {
+        "model": "Toyota Corolla Cross",
+        "variant": "HEV V",
+        "srp": 1850000
+    }
+]
